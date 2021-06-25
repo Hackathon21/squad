@@ -34,3 +34,37 @@ pt2 = np.float32(
     [[0, 0], [ImgWidth, 0], [0, Imgheight], [ImgWidth, Imgheight]])
 matrix = cv2.getPerspectiveTransform(pt1, pt2)
 imgCol = cv2.warpPerspective(img, matrix, (ImgWidth, Imgheight))
+
+ptG1 = np.float32(gradeScore)
+ptG2 = np.float32([[0, 0], [325, 0], [0, 150], [325, 150]])#Points for Grade box 
+matrixG = cv2.getPerspectiveTransform(ptG1, ptG2)
+imgSD = cv2.warpPerspective(img, matrixG, (325, 150))
+
+
+imgWG = cv2.cvtColor(imgCol, cv2.COLOR_BGR2GRAY) # Converting image to grayscale
+imgThreshold = cv2.threshold(imgWG, 170, 255, cv2.THRESH_BINARY_INV)[1] 
+boxes = Project_2.splitBoxes(imgThreshold, questions, options) # Split the image in boxes
+
+rowCount = 0
+colCount = 0
+pixelValue = np.zeros((questions, options))
+
+#Counting and storing no. of pixels in each box
+for val in boxes:
+    netPixel = cv2.countNonZero(val)
+    pixelValue[rowCount][colCount] = netPixel
+    colCount += 1
+    if (colCount == options):
+        colCount = 0
+        rowCount += 1
+
+#Finding the box with max pixel value in each row
+index = []
+for x in range(0, questions):
+    arr = pixelValue[x]
+    mx = max(arr)
+    indexVal = np.where(arr == np.amax(arr))
+    if mx>5000:
+        index.append(indexVal[0][0])
+    else:
+        index.append(-1)
