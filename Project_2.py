@@ -41,3 +41,23 @@ def splitBoxes(img, questions, options):
         for box in cols:
             boxes.append(box)
     return boxes
+# Function to show answer
+def showAnswers(img, index, scoring, ans, questions, options):
+    width = int(img.shape[1]/questions)
+    height = int(img.shape[0]/options)
+    for x in range(0, questions):
+        answer = index[x]
+        X = (answer * height) + height // 2
+        Y = (x * width) + width // 2
+        if scoring[x] == 1:
+            colour = (0, 255, 0)
+            cv2.circle(img, (X, Y), 60, colour, cv2.FILLED)
+        else:
+            colour = (0, 0, 255)
+            correctAns = ans[x]
+            cv2.circle(img, ((correctAns*height)+height//2,
+                             (x*width)+width//2), 30, (0, 255, 0), cv2.FILLED)
+            if(answer != -1):
+                cv2.circle(img, (X, Y), 60, colour, cv2.FILLED)
+
+    return img
