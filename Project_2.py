@@ -31,3 +31,13 @@ def reorder(points):#Arrange all the points of rectangle
     newPoints[1] = points[np.argmin(diff)]
     newPoints[2] = points[np.argmax(diff)]
     return newPoints
+
+# Function to split the image in boxes 
+def splitBoxes(img, questions, options):
+    rows = np.vsplit(img, questions)
+    boxes = []
+    for r in rows:
+        cols = np.hsplit(r, options)
+        for box in cols:
+            boxes.append(box)
+    return boxes
