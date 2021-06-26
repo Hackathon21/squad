@@ -92,5 +92,8 @@ revImgGD = cv2.warpPerspective(rawScoreImg, revMatrix, (ImgWidth, Imgheight))
 finalImg = cv2.addWeighted(finalImg, 1, imgInvWarp, 1, 0)
 finalImg = cv2.addWeighted(finalImg, 1, revImgGD, 1, 0)
 
+# printing the final output
 cv2.imshow("Final Image", finalImg)
+
+#wait 0 means manually closing thw window
 cv2.waitKey(0)
