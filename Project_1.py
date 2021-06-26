@@ -3,7 +3,7 @@ import numpy as np
 import Project_2
 
 #Read the image
-Image = "test1.jpg"
+Image = "testCases\\test1.jpg"
 ImgWidth = 700
 Imgheight = 700
 questions = 5
