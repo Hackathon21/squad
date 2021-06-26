@@ -59,5 +59,4 @@ def showAnswers(img, index, scoring, ans, questions, options):
                              (x*width)+width//2), 30, (0, 255, 0), cv2.FILLED)
             if(answer != -1):
                 cv2.circle(img, (X, Y), 60, colour, cv2.FILLED)
-
     return img
