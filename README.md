@@ -12,4 +12,13 @@ Problem Statement -
                       
   Software for checking and readingOMR sheets - 
   Software that can be used to read as well as check the OMR answer sheets. The software should compare the answers marked by the students with the answer key and provide the    -   total marks at the end. This is a great tool for exams that have MCQ type or objective type Questions.
+  
+  ![image](https://user-images.githubusercontent.com/57215117/124385159-40113d00-dcf2-11eb-90f7-d2d65cea4da4.png)
+  ![image](https://user-images.githubusercontent.com/57215117/124385313-a4340100-dcf2-11eb-9a60-a9cebbf8786b.png)
+![image](https://user-images.githubusercontent.com/57215117/124385356-c168cf80-dcf2-11eb-88bb-e2a74927ddcc.png)
+![image](https://user-images.githubusercontent.com/57215117/124385337-b3b34a00-dcf2-11eb-970a-21ef6c8e5201.png)
+
+
+  
+  
 
